@@ -16,10 +16,20 @@
                         compatible = "zmk,behavior-hold-tap";
                         label = "HOMEROW_MODS";
                         #binding-cells = <2>;
-                        tapping-term-ms = <150>;
+                        tapping-term-ms = <200>;
                         quick-tap-ms = <0>;
                         flavor = "tap-preferred";
                         bindings = <&kp>, <&kp>;
+                };
+
+                hsk: sticky_mods {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "STICKY_MODS"
+                        #binding-cells = <2>;
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <0>;
+                        flavor = "tap-preferred";
+                        bindings = <&sk>, <&kp>;
                 };
         };
         keymap {
@@ -30,12 +40,12 @@
 // |  TAB |  Q  |  W  |  F  |  P  |  G  |   |  J  |  L   |  U  |  Y  |  ;  | ESC  |
 // | BKSP |  A  |  R  |  S  |  T  |  D  |   |  H  |  N   |  E  |  I  |  O  |  '   |
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M   |  ,  |  .  |  /  | SHFT |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+//                    | GUI | LWR | ENT |   | SPC | RSE  | ALT |
                         bindings = <
    &kp TAB   &kp Q &kp W &kp F &kp P &kp G   &kp J &kp L  &kp U     &kp Y   &kp SEMI &kp ESC
-   &kp BSPC  &hm LGUI A &hm LALT R &hm LCTRL S &hm LSHFT T &kp D   &kp H &hm RSHFT N  &hm RCTRL E     &hm RALT I   &hm RGUI O    &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp K &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+   &kp BSPC  &hm LGUI A &hm LALT R &hm LCTRL S &hm LSHFT T &kp D   &kp H &hm RSHFT N  &hm RCTRL E     &hm LALT I   &hm RGUI O    &kp SQT
+   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp K &kp M  &kp COMMA &kp DOT &kp FSLH &hsk RSHFT RSHFT
+                  &kp LGUI &mo 1 &kp RET   &kp SPACE &mo 2 &kp RALT
                         >;
                 };
                 lower_layer {
