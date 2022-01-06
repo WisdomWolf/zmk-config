@@ -131,7 +131,7 @@
 // |      |     |     |      |      |     |   |  {  |  &  |  *  |  (  |  }  |      |
 // |      | GUI | ALT | CTRL | SHFT |     |   |  :  |  $  |  %  |  ^  |  +  |      |
 // |      |     | ALT |      |      |     |   |  ~  |  !  |  @  |  #  |  |  |      |
-//                    |      |      |     |   |     |     |     |
+//                    |      |      |     |   |  _  |  (  |  )  |
                         bindings = <
    &none      &none        &none        &none        &none        &none          &kp LBRC  &kp AMPS &kp STAR  &kp LPAR  &kp RBRC  &none
    &none      &kp LGUI     &kp LALT     &kp LCTRL    &kp LSHFT    &none          &kp COLON &kp DLLR &kp PRCNT &kp CARET &kp PLUS  &none
@@ -147,9 +147,9 @@
 // |      |     | ALT |      |      |     |   | INS  | HOME  | PGDN | PGUP | END  |      |
 //                    |      |      |     |   | DEL  |       |      |
                         bindings = <
-   &none      &none        &none        &none        &none        &none          &kp LC(Y) &kp LC(V)   &kp LC(C) &kp LC(X) &kp LC(Z) &none
-   &none      &kp LGUI     &kp LALT     &kp LCTRL    &kp LSHFT    &none          &kp LEFT  &kp DOWN    &kp UP    &kp RIGHT &capword  &none
-   &none      &none        &kp RALT     &none        &none        &none          &kp INS   &kp HOME    &kp PG_DN &kp PG_UP &kp END   &none
+   &none      &none        &none        &none        &none        &none          &kp LC(Y) &kp LC(V)   &kp LC(C) &kp LC(X) &kp LC(Z)  &none
+   &none      &kp LGUI     &kp LALT     &kp LCTRL    &kp LSHFT    &none          &kp LEFT  &kp DOWN    &kp UP    &kp RIGHT &caps_word &none
+   &none      &none        &kp RALT     &none        &none        &none          &kp INS   &kp HOME    &kp PG_DN &kp PG_UP &kp END    &none
                           	        &none        &none        &none          &kp RET   &kp SPACE   &kp DEL
                         >;
                 };
