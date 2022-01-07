@@ -14,9 +14,10 @@
 #define QWTY    1
 #define LWR     2
 #define RSE     3
-#define NUM     4
-#define SYM     5
-#define MED     6
+#define NUM_L   4
+#define SYM_L   5
+#define NAV_L   6
+#define MED_L   7
 
 / {
         behaviors {
@@ -63,10 +64,10 @@
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M   |  ,  |  .  |  /  | SHFT |
 //                    | GUI | LWR | TAB |   | SPC | RET  | ALT |
                         bindings = <
-   &kp TAB   &kp Q      &kp W      &kp F       &kp P        &kp G        &kp J       &kp L         &kp U       &kp Y      &kp SEMI   &kp ESC
-   &kp BSPC  &hm LGUI A &hm LALT R &hm LCTRL S &hm LSHFT T  &kp D        &kp H       &hm RSHFT N   &hm RCTRL E &hm LALT I &hm RGUI O &kp SQT
-   &kp LSHFT &kp Z      &kp X      &kp C       &kp V        &kp B        &kp K       &kp M         &kp COMMA   &kp DOT    &kp FSLH   &stkm RSHFT RSHFT
-                                   &lm SYM ESC &lm NUM BSPC &lm NAV TAB  &lm RSE RET &lm MED SPACE &kp DEL
+   &kp TAB   &kp Q      &kp W      &kp F         &kp P          &kp G         &kp J       &kp L           &kp U       &kp Y      &kp SEMI   &kp ESC
+   &kp BSPC  &hm LGUI A &hm LALT R &hm LCTRL S   &hm LSHFT T    &kp D         &kp H       &hm RSHFT N     &hm RCTRL E &hm LALT I &hm RGUI O &kp SQT
+   &kp LSHFT &kp Z      &kp X      &kp C         &kp V          &kp B         &kp K       &kp M           &kp COMMA   &kp DOT    &kp FSLH   &stkm RSHFT RSHFT
+                                   &lm SYM_L ESC &lm NUM_L BSPC &lm NAV_L TAB &lm RSE RET &lm MED_L SPACE &kp DEL
                         >;
                 };
 
