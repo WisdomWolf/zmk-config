@@ -12,12 +12,11 @@
 
 #define CLMK    0
 #define QWTY    1
-#define LWR     2
-#define RSE     3
-#define NUM_L   4
-#define SYM_L   5
-#define NAV_L   6
-#define MED_L   7
+#define NAV_L   2
+#define NUM_L   3
+#define SYM_L   4
+#define MED_L   5
+#define RSE     6
 
 / {
         behaviors {
@@ -46,7 +45,7 @@
                         label = "LAYER_MODS";
                         #binding-cells = <2>;
                         tapping-term-ms = <200>;
-                        quick-tap-ms = <0>;
+                        quick-tap-ms = <50>;
                         flavor = "tap-preferred";
                         bindings = <&mo>, <&kp>;
                 };
@@ -64,9 +63,9 @@
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M   |  ,  |  .  |  /  | SHFT |
 //                    | GUI | LWR | TAB |   | SPC | RET  | ALT |
                         bindings = <
-   &kp TAB   &kp Q      &kp W      &kp F         &kp P          &kp G         &kp J       &kp L           &kp U       &kp Y      &kp SEMI   &kp ESC
-   &kp BSPC  &hm LGUI A &hm LALT R &hm LCTRL S   &hm LSHFT T    &kp D         &kp H       &hm RSHFT N     &hm RCTRL E &hm LALT I &hm RGUI O &kp SQT
-   &kp LSHFT &kp Z      &kp X      &kp C         &kp V          &kp B         &kp K       &kp M           &kp COMMA   &kp DOT    &kp FSLH   &stkm RSHFT RSHFT
+   &kp TAB   &kp Q      &kp W      &kp F         &kp P          &kp B         &kp J       &kp L           &kp U       &kp Y      &kp SEMI   &kp ESC
+   &kp BSPC  &hm LGUI A &hm LALT R &hm LCTRL S   &hm LSHFT T    &kp G         &kp M       &hm RSHFT N     &hm RCTRL E &hm LALT I &hm RGUI O &kp SQT
+   &kp LSHFT &kp Z      &kp X      &kp C         &kp D          &kp V         &kp K       &kp H           &kp COMMA   &kp DOT    &kp FSLH   &stkm RSHFT RSHFT
                                    &lm SYM_L ESC &lm NUM_L BSPC &lm NAV_L TAB &lm RSE RET &lm MED_L SPACE &kp DEL
                         >;
                 };
@@ -80,36 +79,22 @@
                         bindings = <
    &kp TAB   &kp Q      &kp W      &kp E       &kp R       &kp T        &kp Y &kp U        &kp I       &kp O      &kp P         &kp BSPC
    &trans    &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F &kp G        &kp H &hm RSHFT J  &hm RCTRL K &hm LALT L &hm RGUI SEMI &kp SQT
-   &trans    &kp Z      &kp X      &kp C       &kp V       &kp B        &kp N &kp M        &kp COMMA   &kp DOT    &kp FSLH      &trans
+   &kp LSHFT &kp Z      &kp X      &kp C       &kp V       &kp B        &kp N &kp M        &kp COMMA   &kp DOT    &kp FSLH      &stkm RSHFT RSHFT
                                    &to CLMK    &trans      &trans       &trans             &trans      &trans
                         >;
                 };
 
-                lower_layer {
+                nav_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT | USB |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT | QWTY| ALT |
+// |      |     |     |      |      |     |   | REDO | PASTE | COPY |  CUT | UNDO |      |
+// |      | GUI | ALT | CTRL | SHFT |     |   | LFT  | DWN   |  UP  | RGT  | CAP  |      |
+// |      |     | ALT |      |      |     |   | INS  | HOME  | PGDN | PGUP | END  |      |
+//                    |      |      |     |   | DEL  |       |      |
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7      &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN    &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &out OUT_TOG &trans       &trans       &trans       &trans         &trans   &trans      &trans &trans    &trans &caps_word
-                          	        &kp LGUI     &kp LCTRL    &trans         &trans   &to QWTY   &kp RALT
-                        >;
-                };
-
-                raise_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | BKSP |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp BSPC  &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	     &kp LGUI &to QWTY &kp SPACE   &kp RET   &trans    &kp RALT
+   &none      &none        &none        &none        &none        &none          &kp LC(Y) &kp LC(V)   &kp LC(C) &kp LC(X) &kp LC(Z)  &none
+   &none      &kp LGUI     &kp LALT     &kp LCTRL    &kp LSHFT    &none          &kp LEFT  &kp DOWN    &kp UP    &kp RIGHT &caps_word &kp CAPS
+   &none      &none        &kp RALT     &none        &none        &none          &kp INS   &kp HOME    &kp PG_DN &kp PG_UP &kp END    &none
+                          	        &none        &none        &none          &kp RET   &kp SPACE   &kp DEL
                         >;
                 };
 
@@ -141,20 +126,6 @@
                         >;
                 };
 
-                nav_layer {
-// -----------------------------------------------------------------------------------------
-// |      |     |     |      |      |     |   | REDO | PASTE | COPY |  CUT | UNDO |      |
-// |      | GUI | ALT | CTRL | SHFT |     |   | LFT  | DWN   |  UP  | RGT  | CAP  |      |
-// |      |     | ALT |      |      |     |   | INS  | HOME  | PGDN | PGUP | END  |      |
-//                    |      |      |     |   | DEL  |       |      |
-                        bindings = <
-   &none      &none        &none        &none        &none        &none          &kp LC(Y) &kp LC(V)   &kp LC(C) &kp LC(X) &kp LC(Z)  &none
-   &none      &kp LGUI     &kp LALT     &kp LCTRL    &kp LSHFT    &none          &kp LEFT  &kp DOWN    &kp UP    &kp RIGHT &caps_word &none
-   &none      &none        &kp RALT     &none        &none        &none          &kp INS   &kp HOME    &kp PG_DN &kp PG_UP &kp END    &none
-                          	        &none        &none        &none          &kp RET   &kp SPACE   &kp DEL
-                        >;
-                };
-
                 media_layer {
 // -----------------------------------------------------------------------------------------
 // | BTCLR | BT1  | BT2    | BT3    | BT4  | BT5  |   |      |      |      |     |     |      |
@@ -166,6 +137,20 @@
    &none      &kp K_PREV   &kp K_VOL_DN &kp K_VOL_UP &kp K_NEXT   &none          &kp LEFT  &kp LSHFT   &kp LCTRL &kp LALT  &kp LGUI  &none
    &none      &none        &none        &none        &none        &none          &none     &none       &none     &kp RALT  &none     &none
                           	        &kp K_MUTE   &none        &to QWTY       &none     &none       &none
+                        >;
+                };
+
+                raise_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+// | BKSP |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+//                    | GUI |     | SPC |   | ENT |     | ALT |
+                        bindings = <
+   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
+   &kp BSPC  &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
+   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
+                    	     &kp LGUI &to QWTY &kp SPACE   &kp RET   &trans    &kp RALT
                         >;
                 };
 
